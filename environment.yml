@@ -1,0 +1,9 @@
+channels:
+  - conda-forge
+  
+dependencies:
+  - scipy>=1.14.0
+  - scikit-learn>=1.5.2
+  - numpy>=1.26.4
+
+
