@@ -1,0 +1,24 @@
+[build-system]
+requires = [
+    "setuptools",
+    "pathlib",
+]
+build-backend = "setuptools.build_meta"
+
+[tool.versioningit.write]
+file = "VERSION"
+
+[project]
+name = "pyALRA"
+dynamic = ["version"]
+readme = "README.md"
+dependencies = [
+    "scipy>=1.14.0",
+    "scikit-learn>=1.5.2",
+    "numpy>=1.26.4"
+]
+
+license = {file = "LICENSE"}
+
+[tool.setuptools.packages.find]
+include = ["pyALRA*"]

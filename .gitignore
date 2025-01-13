@@ -1,0 +1,7 @@
+__pycache__
+*.egg-info
+*.conda
+/pyALRA/data
+/build
+/pyALRA/plots
+/pyALRA/benchmarks/alra_benchmark_results
