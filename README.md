@@ -26,6 +26,9 @@ k = choose_k(adata.X)
 # Apply ALRA
 adata.X = alra(adata.X, k['k'])['A_norm_rank_k_cor_sc']
 ```
+## Benchmarks
+
+Benchmarks against r-ALRA are available on : https://www.biorxiv.org/content/10.1101/2025.03.20.644345v1.
 
 ## License
 
