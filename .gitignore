@@ -5,3 +5,14 @@ __pycache__
 /build
 /pyALRA/plots
 /pyALRA/benchmarks/alra_benchmark_results
+/pyALRA/benchmarks/data
+.DS_Store
+/html
+/_build
+/_static
+/_templates
+/doctrees
+index.rst
+Makefile
+make.bat
+conf.py

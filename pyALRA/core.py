@@ -1,6 +1,5 @@
 import numpy as np
-from scipy.sparse.linalg import svds
-from scipy.linalg import svd
+import scipy.sparse as sp
 from sklearn.utils.extmath import randomized_svd
 from sklearn.decomposition import TruncatedSVD
 
@@ -90,11 +89,15 @@ def alra(A_norm, k=0, q=12, quantile_prob=0.001,random_state=1,type=None):
     """
     print(f"Read matrix with {A_norm.shape[0]} cells and {A_norm.shape[1]} genes")
 
+
     if k == 0:
         k_choice = choose_k(A_norm, q=q,random_state=random_state,type=type)
         k = k_choice['k']
         print(f"Chose k={k}")
 
+    if sp.issparse(A_norm):
+        A_norm=A_norm.toarray()
+        
     originally_nonzero = A_norm > 0
     U, Sigma, VT = randomized_svd_py(A_norm, k, q=q,random_state=random_state,type=type)
 
@@ -102,6 +105,7 @@ def alra(A_norm, k=0, q=12, quantile_prob=0.001,random_state=1,type=None):
 
     print(f"Find the {quantile_prob} quantile of each gene")
     A_norm_rank_k_mins = np.abs(np.quantile(A_norm_rank_k, quantile_prob, axis=0))
+    
     print("Sweep")
     A_norm_rank_k_cor = np.where(A_norm_rank_k <= A_norm_rank_k_mins[np.newaxis, :], 0, A_norm_rank_k)
 
