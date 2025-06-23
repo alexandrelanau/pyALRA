@@ -16,3 +16,6 @@ index.rst
 Makefile
 make.bat
 conf.py
+pyALRA/benchmarks
+/docs
+/benchmarks
