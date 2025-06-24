@@ -2,6 +2,8 @@
 
 pyALRA is a Python implementation of the Adaptively-thresholded Low Rank Approximation (ALRA) method for single-cell RNA-sequencing data imputation. Original repository for R ALRA implementation: https://github.com/KlugerLab/ALRA and original publication : https://www.nature.com/articles/s41467-021-27729-z.
 
+Our current version of the manuscript is availbale here : https://www.biorxiv.org/content/10.1101/2025.03.20.644345v1.
+
 ## Installation
 
 To install the package, use:
@@ -42,4 +44,4 @@ This project is licensed under the MIT License.
 
 ## Version
 
-pyALRA was originally developed for python 3.10.16
+pyALRA was originally developed for python 3.10.16 : scipy=1.14.0, scikit-learn=1.5.2, numpy=1.26.4.

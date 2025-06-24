@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pyALRA.core module &#8212; pyALRA  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=686e5160" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="pyALRA documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="pyalra-core-module">
+<h1>pyALRA.core module<a class="headerlink" href="#pyalra-core-module" title="Link to this heading">¶</a></h1>
+<section id="pyalra-core-alra">
+<h2>pyALRA.core.alra<a class="headerlink" href="#pyalra-core-alra" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyALRA.core.alra">
+<span class="sig-prename descclassname"><span class="pre">pyALRA.core.</span></span><span class="sig-name descname"><span class="pre">alra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A_norm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantile_prob</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">svd_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyALRA/core.html#alra"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyALRA.core.alra" title="Link to this definition">¶</a></dt>
+<dd><p>Adaptive thresholded low-rank approximation (ALRA) for imputation of sparse data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A_norm</strong> (<em>ndarray</em><em> or </em><em>sparse matrix</em>) – Normalized input matrix.</p></li>
+<li><p><strong>k</strong> (<em>int</em><em>, </em><em>optional</em>) – Rank for approximation; if 0, automatically chosen (default 0).</p></li>
+<li><p><strong>q</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of power iterations for randomized SVD (default 12).</p></li>
+<li><p><strong>quantile_prob</strong> (<em>float</em><em>, </em><em>optional</em>) – Quantile threshold for adaptive thresholding (default 0.001).</p></li>
+<li><p><strong>random_state</strong> (<em>int</em><em>, </em><em>optional</em>) – Random seed for reproducibility (default 1).</p></li>
+<li><p><strong>svd_type</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – SVD method: ‘truncated’ or None for randomized SVD.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary containing:
+- ‘A_norm_rank_k’: low-rank approximation matrix (rank k)
+- ‘A_norm_rank_k_cor’: thresholded low-rank matrix
+- ‘A_norm_rank_k_cor_sc’: scaled and thresholded matrix (final imputed matrix)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="pyalra-core-choose-k">
+<h2>pyALRA.core.choose_k<a class="headerlink" href="#pyalra-core-choose-k" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyALRA.core.choose_k">
+<span class="sig-prename descclassname"><span class="pre">pyALRA.core.</span></span><span class="sig-name descname"><span class="pre">choose_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A_norm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">noise_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">80</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">svd_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyALRA/core.html#choose_k"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyALRA.core.choose_k" title="Link to this definition">¶</a></dt>
+<dd><p>Select the rank k for low-rank approximation based on singular value gap statistics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A_norm</strong> (<em>ndarray</em><em> or </em><em>sparse matrix</em>) – Normalized input matrix.</p></li>
+<li><p><strong>K</strong> (<em>int</em><em>, </em><em>optional</em>) – Maximum number of singular values to consider (default 100).</p></li>
+<li><p><strong>thresh</strong> (<em>float</em><em>, </em><em>optional</em>) – Threshold on number of standard deviations to detect significant singular value gap (default 6).</p></li>
+<li><p><strong>noise_start</strong> (<em>int</em><em>, </em><em>optional</em>) – Index to start noise singular values (default 80).</p></li>
+<li><p><strong>q</strong> (<em>int</em><em>, </em><em>optional</em>) – Number of power iterations for randomized SVD (default 12).</p></li>
+<li><p><strong>random_state</strong> (<em>int</em><em>, </em><em>optional</em>) – Random seed for reproducibility (default 1).</p></li>
+<li><p><strong>svd_type</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – SVD method: ‘truncated’ or None for randomized SVD.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Dictionary with keys:
+- ‘k’: selected rank
+- ‘num_of_sds’: array of standardized singular value differences
+- ‘d’: singular values array</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="pyalra-core-randomized-svd-py">
+<h2>pyALRA.core.randomized_svd_py<a class="headerlink" href="#pyalra-core-randomized-svd-py" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyALRA.core.randomized_svd_py">
+<span class="sig-prename descclassname"><span class="pre">pyALRA.core.</span></span><span class="sig-name descname"><span class="pre">randomized_svd_py</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">K</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">random_state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">svd_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyALRA/core.html#randomized_svd_py"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyALRA.core.randomized_svd_py" title="Link to this definition">¶</a></dt>
+<dd><p>Perform SVD with an option for randomized or truncated SVD.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>A</strong> (<em>ndarray</em><em> or </em><em>sparse matrix</em>) – Input data matrix to decompose.</p></li>
+<li><p><strong>K</strong> (<em>int</em>) – Number of singular values and vectors to compute.</p></li>
+<li><p><strong>q</strong> (<em>int</em>) – Number of power iterations (only applicable for randomized SVD).</p></li>
+<li><p><strong>random_state</strong> (<em>int</em>) – Random seed for reproducibility.</p></li>
+<li><p><strong>svd_type</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>optional</em>) – If ‘truncated’, use TruncatedSVD; otherwise, use randomized SVD.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>U</strong> (<em>ndarray</em>) – Left singular vectors.</p></li>
+<li><p><strong>Sigma</strong> (<em>ndarray</em>) – Singular values.</p></li>
+<li><p><strong>VT</strong> (<em>ndarray</em>) – Right singular vectors transposed.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="pyalra-core-normalize-data">
+<h2>pyALRA.core.normalize_data<a class="headerlink" href="#pyalra-core-normalize-data" title="Link to this heading">¶</a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyALRA.core.normalize_data">
+<span class="sig-prename descclassname"><span class="pre">pyALRA.core.</span></span><span class="sig-name descname"><span class="pre">normalize_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">A</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/pyALRA/core.html#normalize_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pyALRA.core.normalize_data" title="Link to this definition">¶</a></dt>
+<dd><p>Normalize data by library size and log-transform.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>A</strong> (<em>ndarray</em><em> or </em><em>sparse matrix</em>) – Input matrix with cells as rows and genes as columns.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Normalized and log-transformed matrix.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">pyALRA</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pyALRA.core module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pyalra-core-alra">pyALRA.core.alra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyalra-core-choose-k">pyALRA.core.choose_k</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyalra-core-randomized-svd-py">pyALRA.core.randomized_svd_py</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pyalra-core-normalize-data">pyALRA.core.normalize_data</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">pyALRA documentation</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, Alexandre LANAU.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.1.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/core.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

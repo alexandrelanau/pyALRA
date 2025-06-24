@@ -1,0 +1,7 @@
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\numberline {1}pyALRA.core module}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}pyALRA.core.alra}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}pyALRA.core.choose\_k}{1}{section.1.2}%
+\contentsline {section}{\numberline {1.3}pyALRA.core.randomized\_svd\_py}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}pyALRA.core.normalize\_data}{2}{section.1.4}%
+\contentsline {chapter}{Index}{3}{section*.7}%

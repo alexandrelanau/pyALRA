@@ -1,0 +1,22 @@
+\begin{sphinxtheindex}
+\let\bigletter\sphinxstyleindexlettergroup
+\let\spxpagem \sphinxstyleindexpagemain
+\let\spxentry \sphinxstyleindexentry
+\let\spxextra \sphinxstyleindexextra
+
+  \bigletter A
+  \item \spxentry{alra()}\spxextra{in module pyALRA.core}, \hyperpage{1}
+
+  \indexspace
+  \bigletter C
+  \item \spxentry{choose\_k()}\spxextra{in module pyALRA.core}, \hyperpage{1}
+
+  \indexspace
+  \bigletter N
+  \item \spxentry{normalize\_data()}\spxextra{in module pyALRA.core}, \hyperpage{2}
+
+  \indexspace
+  \bigletter R
+  \item \spxentry{randomized\_svd\_py()}\spxextra{in module pyALRA.core}, \hyperpage{2}
+
+\end{sphinxtheindex}
